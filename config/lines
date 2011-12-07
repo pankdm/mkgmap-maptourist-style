@@ -303,3 +303,8 @@ waterway=river |
 waterway=rapid | waterway=rapids | whitewater=rapid | whitewater=rapids |
 waterway=drain |
 waterway=stream {add access=no} [0x0f road_class=0 road_speed=0 resolution 24]
+
+piste:type=downhill & piste:difficulty=novice [0x10101 resolution 22]
+piste:type=downhill & piste:difficulty=easy   [0x10102 resolution 22]
+piste:type=downhill & piste:difficulty=intermediate [0x10103 resolution 22]
+piste:type=downhill & piste:difficulty=advanced [0x10104 resolution 22]
