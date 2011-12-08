@@ -31,7 +31,7 @@ convert:
 		--style-file=${STYLE} \
 		--style=${STYLE} \
 		--gmapsupp \
-		-c template.args ${STYLE}/M00001d7.TYP
+		-c template.args ${STYLE}/M00001e0.TYP
 
 mkgbnd2:
 	${OSMOSIS}  --read-pbf file=${INPUT}.pbf outPipe.0=1 \
