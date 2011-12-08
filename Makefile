@@ -25,7 +25,7 @@ convert:
 		--series-name="OSM MapTourist `date "+%Y-%m-%d"`" \
 		--overview-mapname="OSM_MapTourist" \
 		--area-name="OSM `date "+%Y-%m-%d"`" \
-		--family-id=470 \
+		--family-id=480 \
 		--keep-going \
 		--read-config=optionsfile.args \
 		--style-file=${STYLE} \
