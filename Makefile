@@ -2,7 +2,7 @@
 
 STYLE?=		config
 
-INPUT?=		input/RU-KEM.osm
+INPUT?=		input/RU-KEM.osm.pbf
 
 MKGMAP?=	java -Xmx1072m -jar bin/mkgmap.jar
 SPLITTER?=	java -Xmx1072m -jar bin/splitter.jar
@@ -15,7 +15,9 @@ splitpbf:
 		--overlap=20000 \
 		--max-nodes=1000000 \
 		--no-trim \
-		${INPUT} >splitLocal_log
+		--output=pbf \
+		--output-dir=splitted \
+		${INPUT} > splitted/splitLocal_log
 
 convert:
 	${MKGMAP} \
@@ -31,10 +33,10 @@ convert:
 		--style-file=${STYLE} \
 		--style=${STYLE} \
 		--gmapsupp \
-		-c template.args ${STYLE}/M00001e0.TYP
+		-c splitted/template.args ${STYLE}/M00001e0.TYP
 
 mkgbnd2:
-	${OSMOSIS}  --read-pbf file=${INPUT}.pbf outPipe.0=1 \
+	${OSMOSIS}  --read-pbf file=${INPUT} outPipe.0=1 \
 	--tee 2 inPipe.0=1 outPipe.0=2 outPipe.1=3 \
 	--buffer inPipe.0=3 outPipe.0=4 \
 	--buffer inPipe.0=2 outPipe.0=5 \
@@ -45,8 +47,8 @@ mkgbnd2:
 	--used-node inPipe.0=9 outPipe.0=10 \
 	--used-node inPipe.0=7 outPipe.0=11 \
 	--merge inPipe.0=10 inPipe.1=11 outPipe.0=12 \
-	--write-pbf file=local-boundaries.osm.pbf omitmetadata=true compress=deflate inPipe.0=12 
+	--write-pbf file=boundary/local-boundaries.osm.pbf omitmetadata=true compress=deflate inPipe.0=12 
 
 	${MKGMAP} \
-	--createboundsfile=local-boundaries.osm.pbf \
+	--createboundsfile=boundary/local-boundaries.osm.pbf \
 	--bounds=./boundary/local/
