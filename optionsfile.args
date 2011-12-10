@@ -1,0 +1,18 @@
+#
+# Default options for all my maps
+#
+
+max-jobs:2
+code-page:1251
+tdbfile
+index
+lower-case
+route
+net
+drive-on-right
+remove-short-arcs
+location-autofill=bounds
+bounds=./boundary/local
+link-pois-to-ways
+add-pois-to-areas
+generate-sea=extend-sea-sectors,close-gaps=300000,floodblocker
