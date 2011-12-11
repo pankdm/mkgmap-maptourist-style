@@ -17,7 +17,7 @@ splitpbf:
 		--no-trim \
 		--output=pbf \
 		--output-dir=splitted \
-		${INPUT} > splitted/splitLocal_log
+		${INPUT} > logs/splitLocal_log
 
 convert:
 	${MKGMAP} \
