@@ -291,11 +291,13 @@ barrier=hedge	|
 barrier=wall	[0x10f12 resolution 24 continue]
 
 # Канатная дорога
-aerialway=cable_car	|
-aerialway=chair_lift	|
-aerialway=drag_lift	|
-aerialway=gondola	|
-aerialway=mixed_lift 	{ name 'канатка' } [0x10f15 resolution 22]
+aerialway=cable_car  {name '${name} (${ref})' | '${name}' | '${ref}' } [0x10f00 resolution 22]
+aerialway=gondola    {name '${name} (${ref})' | '${name}' | '${ref}' } [0x10f01 resolution 22]
+aerialway=mixed_lift {name '${name} (${ref})' | '${name}' | '${ref}' } [0x10f02 resolution 22]
+aerialway=chair_lift {name '${name} (${ref})' | '${name}' | '${ref}' } [0x10f03 resolution 22]
+aerialway=drag_lift  {name '${name} (${ref})' | '${name}' | '${ref}' } [0x10f04 resolution 22]
+aerialway=*	[0x10f15 resolution 22]
+
 
 # роутинг по рекам - невидимая линия на 0-м слое
 waterway=canal |
@@ -305,7 +307,7 @@ waterway=drain |
 waterway=stream {add access=no} [0x0f road_class=0 road_speed=0 resolution 24]
 
 # Горнолыжные трассы
-piste:type=downhill & piste:difficulty=novice [0x10101 resolution 22]
+piste:type=downhill & piste:difficulty=novice [0x10105 resolution 22]
 piste:type=downhill & piste:difficulty=easy   [0x10102 resolution 22]
 piste:type=downhill & piste:difficulty=intermediate [0x10103 resolution 22]
 piste:type=downhill & piste:difficulty=advanced [0x10104 resolution 22]
