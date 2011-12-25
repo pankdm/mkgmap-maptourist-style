@@ -1,6 +1,9 @@
 
 
 STYLE?=		config
+TYP?=       M00001e0.TYP
+ID?=        495
+
 
 INPUT?=		input/RU-KEM.osm.pbf
 
@@ -27,13 +30,13 @@ convert:
 		--series-name="OSM MapTourist `date "+%Y-%m-%d"`" \
 		--overview-mapname="OSM_MapTourist" \
 		--area-name="OSM `date "+%Y-%m-%d"`" \
-		--family-id=480 \
+		--family-id=${ID} \
 		--keep-going \
 		--read-config=optionsfile.args \
 		--style-file=${STYLE} \
 		--style=${STYLE} \
 		--gmapsupp \
-		-c splitted/template.args ${STYLE}/M00001e0.TYP
+		-c splitted/template.args ${STYLE}/${TYP}
 
 mkgbnd2:
 	${OSMOSIS}  --read-pbf file=${INPUT} outPipe.0=1 \
