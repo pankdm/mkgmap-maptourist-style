@@ -38,6 +38,7 @@ convert:
 		-c splitted/template.args ${STYLE}/${TYP}
 
 mkgbnd2:
+	mkdir -p boundary
 	${OSMOSIS}  --read-pbf file=${INPUT} outPipe.0=1 \
 	--tee 2 inPipe.0=1 outPipe.0=2 outPipe.1=3 \
 	--buffer inPipe.0=3 outPipe.0=4 \
