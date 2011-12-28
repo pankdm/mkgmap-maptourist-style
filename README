@@ -1,0 +1,27 @@
+This is a project to provide easy and convenient way to convert Garmin 
+maps from OpenStreetMap data using mkgmap and style files from 
+http://maptouirist.org
+
+== Installation
+Download the following binaries:
+- mkgmap.jar from http://www.mkgmap.org.uk/snapshots/
+- splitter.jar from http://www.mkgmap.org.uk/splitter/
+- osmosis from http://bretth.dev.openstreetmap.org/osmosis-build/osmosis-latest.tgz
+
+and make links for them in bin/
+    or change the parametres MKGMAP SPLITTER OSMOSIS in Makefile
+
+== Usage
+Download the map in pbf format that you want to convert.
+
+Put it as input/example.osm.pbf
+    or change the parameter INPUT in Makefile
+    
+Prepare boundaries:
+    make mkgbnd2
+    
+Convert map:    
+    make all
+
+
+The file output/gmapsupp.img is ready to be uploaded to device
