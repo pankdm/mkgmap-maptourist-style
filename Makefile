@@ -1,11 +1,9 @@
 
+INPUT?=		input/example.osm.pbf
 
 STYLE?=		config
 TYP?=       M00001e0.TYP
 ID?=        495
-
-
-INPUT?=		input/RU-KEM.osm.pbf
 
 MKGMAP?=	java -Xmx1072m -jar bin/mkgmap.jar
 SPLITTER?=	java -Xmx1072m -jar bin/splitter.jar
@@ -14,6 +12,7 @@ OSMOSIS?=	bin/osmosis
 all: splitpbf convert
 
 splitpbf:
+	mkdir -p logs
 	${SPLITTER} \
 		--overlap=20000 \
 		--max-nodes=1000000 \
