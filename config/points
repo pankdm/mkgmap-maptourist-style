@@ -421,7 +421,7 @@ barrier=lift_gate | barrier=gate
 	{set access = no} [0x5800 resolution 24 default_name 'gate']
 amenity=signpost { name '${label}' } [0x5a00 resolution  21 default_name 'signpost']
 traffic_sign=city_limit [0x56 resolution 21 default_name 'city limit']
-highway=ford | highway=* & ford=yes [0x6406 resolution 21 default_name 'ford']
+highway=ford | ford=yes [0x6406 resolution 21 default_name 'ford']
 
 ### Добавляем еще разных точек ###
 # Залив, плес

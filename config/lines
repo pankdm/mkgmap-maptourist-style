@@ -105,6 +105,14 @@ highway=* & winter_road=yes & ice_road!=yes | highway=* & ice_road=yes & winter_
 	& area!=yes [0x10f16 resolution 24 continue]
 # & (railway!=subway | waterway!=* | area!=yes) Так почему-то не работает. К мостам добавляется контур.
 
+# линии тоннелей дополнительно к дорогам
+(tunnel=yes | tunnel=true) & railway!=subway & area!=yes 
+	[0x10f1a resolution 24 continue]
+
+# линии бродов тем же типом, что и track
+highway=ford | highway=* & ford=yes [0x0a road_class=0 road_speed=0 resolution 21 default_name 'ford'] 
+
+
 aeroway=runway [0x27 resolution 19]
 aeroway=taxiway [0x27 resolution 24]
 
@@ -174,7 +182,8 @@ junction=roundabout [0x0c road_class=0 road_speed=1 resolution 21]
 # Ways that may or may not be useable
 
 # Treat ways under construction as highway=path - canceled
-highway=construction | highway=* & construction=* {add access = no; add bicycle = yes; add foot = yes; add mkgmap:dead-end-check = false } [0x0d road_class=0 road_speed=1 resolution 21]
+highway=construction | highway=* & construction=* {add access = no; add bicycle = yes; add foot = yes; add mkgmap:dead-end-check = false } [0x0f road_class=0 road_speed=1 resolution 21 continue]
+highway=construction | highway=* & construction=* [0x10f19 resolution 21 continue]
 # Treat disused ways as highway=service, but at lower road_speed.
 highway=* & disused=yes [0x0a road_class=0 road_speed=1 resolution 21 continue]
 
@@ -199,14 +208,14 @@ highway=primary [0x03 road_class=3 road_speed=4 resolution 18]
 highway=primary_link [0x08 road_class=3 road_speed=1 resolution 21]
 highway=secondary [0x04 road_class=2 road_speed=3 resolution 18]
 highway=secondary_link [0x08 road_class=2 road_speed=1 resolution 21]
-highway=tertiary [0x05 road_class=1 road_speed=3 resolution 19]
+highway=tertiary [0x11 road_class=1 road_speed=3 resolution 19]
 highway=tertiary_link [0x08 road_class=1 road_speed=1 resolution 21]
-highway=minor [0x11 road_class=1 road_speed=3 resolution 19]
-highway=unclassified [0x11 road_class=0 road_speed=3 resolution 19]
+highway=minor [0x06 road_class=1 road_speed=3 resolution 19]
+highway=unclassified [0x06 road_class=0 road_speed=3 resolution 19]
 
-highway=pedestrian & area!=yes {add access = no; add foot = yes} [0x06 road_class=0 road_speed=0 resolution 22]
+highway=pedestrian & area!=yes {add access = no; add foot = yes} [0x0d road_class=0 road_speed=0 resolution 22]
 highway=living_street & area!=yes [0x06 road_class=0 road_speed=1 resolution 22]
-highway=residential & area!=yes [0x06 road_class=0 road_speed=2 resolution 22]
+highway=residential & area!=yes [0x0d road_class=0 road_speed=2 resolution 22]
 highway=bridleway {add access = no; add bicycle = yes; add foot = yes} [0x16 road_class=0 road_speed=0 resolution 22]
 highway=byway [0x16 road_class=0 road_speed=0 resolution 22]
 highway=service & oneway=yes [0x07 road_class=0 road_speed=1 resolution 22]
@@ -218,7 +227,8 @@ highway=steps {add access = no; add foot = yes} [0x16 road_class=0 road_speed=0 
 highway=track & tracktype!=grade1 [0x0a road_class=0 road_speed=1 resolution 21]
 highway=track & tracktype=grade1 [0x07 road_class=1 road_speed=1 resolution 21]
 highway=unsurfaced [0x0a road_class=0 road_speed=1 resolution 21]
-highway=road { add mkgmap:dead-end-check = false} [0x00 road_class=0 road_speed=1 resolution 21]
+highway=road [0x05 road_class=0 road_speed=1 resolution 21]
+# highway=road {add mkgmap:dead-end-check = false} [0x00 road_class=0 road_speed=1 resolution 21]
 
 # Mop up any unrecognised highway types
 highway=* & area!=yes [0x07 ]

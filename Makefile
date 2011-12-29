@@ -3,7 +3,7 @@ INPUT?=		input/example.osm.pbf
 
 STYLE?=		config
 TYP?=       M00001e0.TYP
-ID?=        495
+ID?=        480
 
 MKGMAP?=	java -Xmx1072m -jar bin/mkgmap.jar
 SPLITTER?=	java -Xmx1072m -jar bin/splitter.jar
