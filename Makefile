@@ -5,9 +5,9 @@ STYLE?=		config
 TYP?=       M00001e0.TYP
 ID?=        480
 
-MKGMAP?=	java -Xmx1072m -jar bin/mkgmap.jar
-SPLITTER?=	java -Xmx1072m -jar bin/splitter.jar
 OSMOSIS?=	bin/osmosis
+SPLITTER?=	java -Xmx1500m -jar bin/splitter.jar
+MKGMAP?=	java -Xmx1500m -jar bin/mkgmap.jar
 
 all: splitpbf convert
 
