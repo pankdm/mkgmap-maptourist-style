@@ -225,7 +225,7 @@ highway=motorway_junction { name '${ref} ${name}' | '${ref}' | '${name}' }
 highway=motorway_junction [0x2000 resolution 21 default_name 'junction']
 
 highway=services { name '${ref} ${name}' | '${ref}' | '${name}' }
-highway=services [0x210f resolution 21 default_name 'cervices']
+highway=services [0x2f03 resolution 21 default_name 'services']
 
 historic=museum [0x2c02 resolution 24 default_name 'museum']
 historic=archaeological_site | historic=ruins [0x2c04 resolution 24 default_name 'historic']
