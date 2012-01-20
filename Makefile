@@ -58,3 +58,6 @@ mkgbnd2:
 	${MKGMAP} \
 	--createboundsfile=boundary/local-boundaries.osm.pbf \
 	--bounds=./boundary/local/
+
+clean:
+	rm -rf boundary/* splitted/* logs/* output/*

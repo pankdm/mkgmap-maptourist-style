@@ -3,13 +3,18 @@ maps from OpenStreetMap data using mkgmap and style files from
 http://maptourist.org
 
 == Installation
-Download the following binaries:
+Manual download the following binaries:
 - mkgmap.jar from http://www.mkgmap.org.uk/snapshots/
 - splitter.jar from http://www.mkgmap.org.uk/splitter/
 - osmosis from http://bretth.dev.openstreetmap.org/osmosis-build/osmosis-latest.tgz
 
 and make links for them in bin/
     or change the parametres MKGMAP SPLITTER OSMOSIS in Makefile
+
+OR
+
+Run update_bin.sh script which will download all binaries and add support for
+sorting using cp1251 codepage.
 
 == Usage
 Download the map in pbf format that you want to convert.
