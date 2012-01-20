@@ -4,6 +4,8 @@ INPUT?=		input/example.osm.pbf
 STYLE?=		config
 TYP?=       M00001e0.TYP
 ID?=        480
+PAD?=		00000000
+MAPID?=		${shell echo ${ID}${PAD} | cut -c1-8}
 
 OSMOSIS?=	bin/osmosis
 SPLITTER?=	java -Xmx1500m -jar bin/splitter.jar
@@ -19,6 +21,7 @@ splitpbf:
 		--no-trim \
 		--output=pbf \
 		--output-dir=splitted \
+		--mapid=${MAPID} \
 		${INPUT} > logs/splitLocal_log
 
 convert:
@@ -55,3 +58,6 @@ mkgbnd2:
 	${MKGMAP} \
 	--createboundsfile=boundary/local-boundaries.osm.pbf \
 	--bounds=./boundary/local/
+
+clean:
+	rm -rf boundary/* splitted/* logs/* output/*
