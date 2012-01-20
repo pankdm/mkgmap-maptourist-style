@@ -21,7 +21,7 @@ splitpbf:
 		--no-trim \
 		--output=pbf \
 		--output-dir=splitted \
-		--mapid=${MAPID}
+		--mapid=${MAPID} \
 		${INPUT} > logs/splitLocal_log
 
 convert:
