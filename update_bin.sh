@@ -32,15 +32,16 @@ if [ ${remote_size}x != ${local_size}x ]; then
 fi
 tar xfz $splitter -C tmp
 
-rm -rf /bin/*.jar
-rm -rf /bin/lib
-rm -rf lib
+mkdir -p contrib
 
-cp -rd tmp/mkgmap-*/*.jar bin/
-cp -rd tmp/splitter-*/*.jar bin/
-cp -rd tmp/splitter-*/lib bin/
-cp -rd tmp/osmosis-*/bin/osmosis bin/
-cp -rd tmp/osmosis-*/lib .
-cp -rd tmp/osmosis-*/config/plexus.conf config/
+rm -rf contrib/*-latest
+
+cp -rd tmp/mkgmap-* contrib/mkgmap-latest
+cp -rd tmp/splitter-* contrib/splitter-latest
+cp -rd tmp/osmosis-* contrib/osmosis-latest
+
+ln -sf ../contrib/mkgmap-latest/mkgmap.jar bin/mkgmap.jar
+ln -sf ../contrib/splitter-latest/splitter.jar bin/splitter.jar
+ln -sf ../contrib/osmosis-latest/bin/osmosis bin/osmosis
 
 rm -rf tmp
