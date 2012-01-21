@@ -42,9 +42,5 @@ cp -rd tmp/splitter-*/lib bin/
 cp -rd tmp/osmosis-*/bin/osmosis bin/
 cp -rd tmp/osmosis-*/lib .
 cp -rd tmp/osmosis-*/config/plexus.conf config/
-out=`which zip`
-if [ ! -z $out ]; then
-    zip -r bin/mkgmap.jar sort
-fi
 
 rm -rf tmp
