@@ -25,6 +25,7 @@ splitpbf:
 		${INPUT} > logs/splitLocal_log
 
 convert:
+	mkdir -p output
 	${MKGMAP} \
 		--output-dir=output \
 		--description="OSM MapTourist" \
