@@ -115,6 +115,7 @@ landuse=farmyard [0x4e resolution 21]
 landuse=forest [0x15 resolution 21]
 landuse=greenfield [0x17 resolution 21]
 landuse=industrial [0x0c resolution 21]
+power=station [0x0c resolution 21]
 # трава, лужайки, газоны
 landuse=meadow | landuse=grass [0x18 resolution 21]
 landuse=military [0x04 resolution 21]
@@ -288,4 +289,5 @@ landuse=farm [0x10f00 resolution 21]
 
 natural=cliff [0x10118 resolution 21]
 
-# boundary=administrative & admin_level=4 & name='Тверская область' [0x4b resolution 16]
+boundary=administrative & admin_level=4 & name='Тверская область' [0x4b resolution 16 continue]
+boundary=administrative & admin_level=4 & name='Новгородская область' [0x4b resolution 16 continue]
