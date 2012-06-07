@@ -8,6 +8,24 @@
 # and http://wiki.openstreetmap.org/wiki/Mkgmap/help/Custom_styles
 # for more information.
 
+# сокращаем статусные части названий улиц
+highway=* { name '${name|subst:улица=> ул
+			|subst:переулок=> пер
+			|subst:проспект=> пр-т
+			|subst:проезд=> пр-д
+			|subst:разъезд=> раз
+			|subst:тракт=> тр
+			|subst:площадь=> пл
+			|subst:имени=> им.
+			|subst:бульвар=> бул
+			|subst:шоссе=> ш
+			|subst:дорога=> дор
+			|subst:тупик=> туп
+			|subst:микрорайон=> мкр
+			|subst:аллея=> алл
+			|subst:набережная=> наб
+			}' }
+
 # убираем из обработки все планируемые дороги, ж/д, мосты и т.д.
 highway=proposed | railway=proposed | bridge=proposed | proposed=* 
 		{delete highway; delete rail; delete bridge}

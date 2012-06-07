@@ -165,7 +165,7 @@ natural=wood & wood=deciduous [0x10101 resolution 21]
 natural=wood [0x50 resolution 21]
 
 # Некоторые большие озера видно везде. Остальные только ниже.
-natural=water   & name!='Онежское оз.' 
+natural=water   & name!='Онежское озеро' 
 		& name!='Рыбинское водохранилище' 
 		& name!='Ильмень' 
 		& name!='Чудское' 
@@ -177,7 +177,7 @@ natural=water   & name!='Онежское оз.'
 		& name!='Братское водохранилище' 
 			[0x3c resolution 18 continue]
 
-natural=water & name='Онежское оз.' 
+natural=water & name='Онежское озеро' 
 		| name='Рыбинское водохранилище' 
 		| name='Ильмень' 
 		| name='Чудское' 
