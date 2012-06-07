@@ -71,7 +71,22 @@ mkgmap:city!=* & (name=* & place=*) { set mkgmap:city='${name}' } # назван
 mkgmap:postal_code!=* & mkgmap:postcode=* { set mkgmap:postal_code='${mkgmap:postcode}' } 
 mkgmap:postal_code!=* & addr:postcode=* { set mkgmap:postal_code='${addr:postcode}' } 
 
-mkgmap:street!=* & addr:street=* { set mkgmap:street='${addr:street}' }
+mkgmap:street!=* & addr:street=* { set mkgmap:street='${addr:street|subst:улица=> ул
+			|subst:переулок=> пер
+			|subst:проспект=> пр-т
+			|subst:проезд=> пр-д
+			|subst:разъезд=> раз
+			|subst:тракт=> тр
+			|subst:площадь=> пл
+			|subst:имени=> им.
+			|subst:бульвар=> бул
+			|subst:шоссе=> ш
+			|subst:дорога=> дор
+			|subst:тупик=> туп
+			|subst:набережная=> наб
+			|subst:аллея=> алл
+			|subst:микрорайон=> мкр}'
+
 mkgmap:street!=* & addr:housename=* { set mkgmap:street='${addr:housename}' }
 
 mkgmap:housenumber!=* & addr:housenumber=* { set mkgmap:housenumber='${addr:housenumber}' }
