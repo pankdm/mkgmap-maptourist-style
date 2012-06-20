@@ -9,21 +9,22 @@
 # for more information.
 
 # сокращаем статусные части названий улиц
-highway=* { name '${name|subst:улица=> ул
-			|subst:переулок=> пер
+highway=* { name '${name|subst:улица=> ул.
+			|subst:переулок=> пер.
 			|subst:проспект=> пр-т
 			|subst:проезд=> пр-д
-			|subst:разъезд=> раз
-			|subst:тракт=> тр
-			|subst:площадь=> пл
+			|subst:разъезд=> раз.
+			|subst:тракт=> тр-т
+			|subst:площадь=> пл.
 			|subst:имени=> им.
-			|subst:бульвар=> бул
-			|subst:шоссе=> ш
-			|subst:дорога=> дор
-			|subst:тупик=> туп
+			|subst:бульвар=> бл-р
+			|subst:шоссе=> ш.
+			|subst:дорога=> дор.
+			|subst:тупик=> туп.
 			|subst:микрорайон=> мкр
-			|subst:аллея=> алл
-			|subst:набережная=> наб
+			|subst:аллея=> алл.
+			|subst:линия=> лин.
+			|subst:набережная=> наб.
 			}' }
 
 # убираем из обработки все планируемые дороги, ж/д, мосты и т.д.
@@ -108,6 +109,7 @@ mkgmap:street!=* & addr:housename=* { set mkgmap:street='${addr:housename}' }
 mkgmap:housenumber!=* & addr:housenumber=* { set mkgmap:housenumber='${addr:housenumber}' }
 
 mkgmap:phone!=* & phone=* { set mkgmap:phone='${phone}' }
+mkgmap:phone!=* & contact:phone=* { add mkgmap:phone='${contact:phone}' }
 
 mkgmap:is_in!=* & is_in=* { set mkgmap:is_in='${is_in}' }
 
@@ -128,7 +130,7 @@ highway=* & winter_road=yes & ice_road!=yes | highway=* & ice_road=yes & winter_
 	[0x10f1a resolution 24 continue]
 
 # линии бродов тем же типом, что и track
-highway=ford | highway=* & ford=yes [0x0a road_class=0 road_speed=0 resolution 21 default_name 'ford'] 
+highway=ford | highway=* & ford=yes [0x0a road_class=0 road_speed=0 resolution 21 default_name 'брод'] 
 
 
 aeroway=runway [0x27 resolution 19]
