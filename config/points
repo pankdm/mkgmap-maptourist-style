@@ -201,13 +201,13 @@ amenity=university [0x2c05 resolution 24 default_name 'университет']
 amenity=zoo [0x2c07 resolution 24 default_name 'зоопарк']
 
 landuse=forest & name=* [0x6618 resolution 21]
-landuse=basin [0x650f resolution 21 default_name 'пруд']
+landuse=basin & name=* [0x650f resolution 21 default_name 'пруд']
 landuse=cemetery [0x6403 resolution 21 default_name 'кладбище']
-landuse=military & mkgmap:area2poi!=true [0x640b resolution 21 default_name 'запретная зона']
-landuse=reservoir [0x650f resolution 21 default_name 'водохранилище']
+landuse=military & name=* [0x640b resolution 21 default_name 'запретная зона']
+landuse=reservoir & name=* [0x650f resolution 21 default_name 'водохранилище']
 landuse=village_green & name=* [0x2c06 resolution 21]
 landuse=wood & name=* [0x6618 resolution 21]
-landuse=retail [0x2e00 resolution 21 default_name 'рынок']
+landuse=retail [0x2e00 resolution 21 default_name 'торговля']
 
 healthcare=* [0x3002 resolution 21]
 
@@ -270,15 +270,15 @@ leisure=water_park [0x2b04 resolution 24 default_name 'аквапарк']
 man_made=tower [0x6411 resolution 22 default_name 'башня']
 
 # Edge 705 displays 0x650a,0x6511,0x6512,0x6513,0x6603,0x6614 as hollow white circles, no menu
-natural=peak {name '${name|def:}${ele|height:m=>ft|def:}' } [0x6616 resolution 21 default_name 'вершина']
+natural=peak | natural=hill {name '${name|def:}${ele|height:m=>ft|def:}' } [0x6616 resolution 21 default_name 'вершина']
 natural=beach [0x6604 resolution 21 default_name 'пляж']
 natural=cave_entrance [0x6601 resolution 21 default_name 'пещера']
-natural=cliff [0x6607 resolution 21 default_name 'утес']
+natural=cliff {name '${name|def:}${ele|height:m=>ft|def:}' } [0x6607 resolution 21 default_name 'утес']
 natural=glacier [0x650a resolution 21 default_name 'ледник']
-natural=rock [0x6614 resolution 21 default_name 'скала']
+natural=rock {name '${name|def:}${ele|height:m=>ft|def:}' } [0x6614 resolution 21 default_name 'скала']
 natural=spring [0x6511 resolution 24 default_name 'родник']
 natural=stream [0x6512 resolution 21 default_name 'ручей']
-natural=volcano [0x2c0c resolution 21 default_name 'вулкан']
+natural=volcano {name '${name|def:}${ele|height:m=>ft|def:}' } [0x2c0c resolution 21 default_name 'вулкан']
 natural=water & name=* [0x650d resolution 21]
 natural=waterfall | waterway=waterfall [0x6508 resolution 21 default_name 'водопад']
 natural=wetland & name=* [0x6513 resolution 21]
@@ -319,8 +319,8 @@ cladr:suffix='садовое неком-е товарищество'
 | cladr:suffix='садовое некоммерческое товарищество'	{set cladr:suffix = 'снт' }
 cladr:suffix='Хутор' 			{set cladr:suffix = 'х.' }
 
-place=city [0x0100 resolution 16 default_name 'город']
-#place=city & mkgmap:area2poi!=true	{name '${name}, ${cladr:suffix}' | '${name}' | '${place_name}, ${cladr:suffix}' | '${place_name}'} [0x0100 resolution 16 default_name 'город']
+# place=city [0x0100 resolution 16]
+place=city & mkgmap:area2poi!=true	{name '${name}, ${cladr:suffix}' | '${name}' | '${place_name}, ${cladr:suffix}' | '${place_name}'} [0x0100 resolution 16 default_name 'город']
 place=suburb & mkgmap:area2poi!=true	{name '${name}, ${cladr:suffix}' | '${name}' 
 	| '${place_name}, ${cladr:suffix}' | '${place_name}'} [0x0600 resolution 18 default_name 'пригород']
 place=town & mkgmap:area2poi!=true	{name '${name}, ${cladr:suffix}' | '${name}' 
@@ -391,6 +391,7 @@ shop=shoes [0x2e07 resolution 24 default_name 'обувной']
 shop=supermarket [0x2e02 resolution 24 default_name 'супермаркет']
 shop=tires [0x2f07 resolution 24 default_name 'шины']
 shop=tyres [0x2f07 resolution 24 default_name 'шины']
+shop=kiosk [0x2e00 resolution 24 default_name 'ларек']
 shop=* [0x2e00 resolution 24 default_name 'магазин']
 
 sport=9pin [0x2d07 resolution 24 default_name 'боулинг-9']
