@@ -75,11 +75,30 @@ mkgmap:postal_code!=* & mkgmap:postcode=* { set mkgmap:postal_code='${mkgmap:pos
 mkgmap:postal_code!=* & addr:postcode=* { set mkgmap:postal_code='${addr:postcode}' } 
 
 mkgmap:street!=* & addr:street=* { set mkgmap:street='${addr:street}' }
+addr:street=* { set addr:street='${addr:street|subst:улица=> ул.
+			|subst:переулок=> пер.
+			|subst:проспект=> пр-т
+			|subst:проезд=> пр-д
+			|subst:разъезд=> раз.
+			|subst:тракт=> тр-т
+			|subst:площадь=> пл.
+			|subst:имени=> им.
+			|subst:бульвар=> бл-р
+			|subst:шоссе=> ш.
+			|subst:дорога=> дор.
+			|subst:тупик=> туп.
+			|subst:микрорайон=> мкр
+			|subst:аллея=> алл.
+			|subst:линия=> лин.
+			|subst:набережная=> наб.}'
+
+
 mkgmap:street!=* & addr:housename=* { set mkgmap:street='${addr:housename}' }
 
 mkgmap:housenumber!=* & addr:housenumber=* { set mkgmap:housenumber='${addr:housenumber}' }
 
 mkgmap:phone!=* & phone=* { set mkgmap:phone='${phone}' }
+mkgmap:phone!=* & contact:phone=* { add mkgmap:phone='${contact:phone}' }
 
 mkgmap:is_in!=* & is_in=* { set mkgmap:is_in='${is_in}' }
 
@@ -93,8 +112,11 @@ amenity=college [0x0a resolution 24 continue]
 amenity=grave_yard [0x1a resolution 21]
 amenity=hospital [0x0b resolution 21]
 amenity=nursing_home [0x0b resolution 21]
-parking=underground | parking=multi-storey [0x06 resolution 24]
-amenity=parking | parking=surface | landuse=garages [0x05 resolution 24]
+
+amenity=parking | parking=surface [0x05 resolution 24]
+parking=underground | parking=multi-storey [0x05 resolution 24]
+landuse=garages [0x06 resolution 24]
+
 amenity=prison [0x04 resolution 22]
 amenity=school [0x0a resolution 24 continue]
 # amenity=supermarket is superceded by shop=supermarket or landuse=retail
@@ -104,7 +126,7 @@ amenity=university [0x0a resolution 24 continue]
 healthcare=* [0x0b resolution 21]
 
 landuse=allotments [0x4e resolution 21]
-landuse=basin [0x3f resolution 21]
+landuse=basin [0x3f resolution 21 default_name 'пруд']
 landuse=cemetary [0x1a resolution 21]
 landuse=cemetery [0x1a resolution 21]
 landuse=commercial [0x0c resolution 21]
@@ -289,5 +311,8 @@ landuse=farm [0x10f00 resolution 21]
 
 natural=cliff [0x10118 resolution 21]
 
-boundary=administrative & admin_level=4 & name='Тверская область' [0x4b resolution 16 continue]
-boundary=administrative & admin_level=4 & name='Новгородская область' [0x4b resolution 16 continue]
+# boundary=administrative & admin_level=4 & name='Тверская область' [0x4b resolution 16 continue]
+# boundary=administrative & admin_level=4 & name='Новгородская область' [0x4b resolution 16 continue]
+# boundary=administrative & admin_level=4 & name='Костромская область' [0x4b resolution 16 continue]
+# boundary=administrative & admin_level=4 & name='Вологодская область' [0x4b resolution 16 continue]
+# boundary=administrative & admin_level=4 & name='Ярославская область' [0x4b resolution 16 continue]
