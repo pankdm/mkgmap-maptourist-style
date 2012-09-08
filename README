@@ -3,7 +3,11 @@ maps from OpenStreetMap data using mkgmap and style files from
 http://maptourist.org
 
 == Installation
-Manual download the following binaries:
+Run update_bin.sh script which will download all binaries
+
+OR
+
+Manually download the following binaries:
 - mkgmap.jar from http://www.mkgmap.org.uk/snapshots/
 - splitter.jar from http://www.mkgmap.org.uk/splitter/
 - osmosis from http://bretth.dev.openstreetmap.org/osmosis-build/osmosis-latest.tgz
@@ -11,21 +15,16 @@ Manual download the following binaries:
 and make links for them in bin/
     or change the parametres MKGMAP SPLITTER OSMOSIS in Makefile
 
-OR
-
-Run update_bin.sh script which will download all binaries
-
 == Usage
-Download the map in pbf format that you want to convert.
+Download the map (that you want to convert) in pbf format.
 
 Put it as input/example.osm.pbf
     or change the parameter INPUT in Makefile
-    
-Prepare boundaries:
-    make mkgbnd2
-    
-Convert map:    
-    make all
 
+Prepare boundaries (needs to be rerun only if boundaries changed):
+	make bounds
+    
+Generate map:    
+    make split convert
 
 The file output/gmapsupp.img is ready to be uploaded to device
