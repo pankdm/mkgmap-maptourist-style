@@ -15,18 +15,21 @@ all: bounds split convert
 
 bounds:
 	mkdir -p boundary
-	${OSMOSIS}  --read-pbf file=${INPUT} outPipe.0=1 \
-	--tee 2 inPipe.0=1 outPipe.0=2 outPipe.1=3 \
-	--buffer inPipe.0=3 outPipe.0=4 \
-	--buffer inPipe.0=2 outPipe.0=5 \
-	--tag-filter accept-relations boundary=administrative,postal_code inPipe.0=4 outPipe.0=6 \
-	--used-way inPipe.0=6 outPipe.0=7 \
-	--tag-filter reject-relations inPipe.0=5 outPipe.0=8 \
-	--tag-filter accept-ways boundary=administrative,postal_code inPipe.0=8 outPipe.0=9 \
+	${OSMOSIS}  \
+	--read-pbf file=${INPUT} outPipe.0=1 \
+	--buffer inPipe.0=1 outPipe.0=2 \
+	--tag-filter reject-relations inPipe.0=2 outPipe.0=3 \
+	--tag-filter accept-ways boundary=administrative,postal_code inPipe.0=3 outPipe.0=4 \
+	--used-node inPipe.0=4 outPipe.0=5 \
+	\
+	--read-pbf file=${INPUT} outPipe.0=6 \
+	--buffer inPipe.0=6 outPipe.0=7 \
+	--tag-filter accept-relations boundary=administrative,postal_code inPipe.0=7 outPipe.0=8 \
+	--used-way inPipe.0=8 outPipe.0=9 \
 	--used-node inPipe.0=9 outPipe.0=10 \
-	--used-node inPipe.0=7 outPipe.0=11 \
-	--merge inPipe.0=10 inPipe.1=11 outPipe.0=12 \
-	--write-pbf file=boundary/local-boundaries.osm.pbf omitmetadata=true compress=deflate inPipe.0=12 
+	\
+	--merge inPipe.0=5 inPipe.1=10 outPipe.0=11 \
+	--write-pbf file=boundary/local-boundaries.osm.pbf omitmetadata=true compress=deflate inPipe.0=11 
 
 	${MKGMAP} \
 	--createboundsfile=boundary/local-boundaries.osm.pbf \
