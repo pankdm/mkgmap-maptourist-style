@@ -249,12 +249,13 @@ highway=services { name '${ref} ${name}' | '${ref}' | '${name}' }
 highway=services [0x2f03 resolution 21 default_name 'служебн.']
 
 historic=museum [0x2c02 resolution 24 default_name 'музей']
-historic=archaeological_site | historic=ruins [0x2c04 resolution 24 default_name 'историч.']
+historic=archaeological_site [0x2c04 resolution 24 default_name 'историч.']
 historic=memorial [0x2c04 resolution 24 default_name 'мемориал']
 historic=monument [0x2c04 resolution 24 default_name 'монумент']
-historic=castle [0x2c04 resolution 24 default_name 'замок']
-historic=fort [0x2c04 resolution 24 default_name 'форт']
 
+historic=fort [0x11604 resolution 21 default_name 'форт']
+historic=castle [0x11604 resolution 21 default_name 'замок']
+historic=ruins [0x11605 resolution 21 default_name 'историч.']
 
 leisure=common & name=* [0x2c06 resolution 24]
 leisure=garden & name=* [0x2c06 resolution 24]
@@ -272,6 +273,8 @@ leisure=track { name '${name} (${sport})' | '${name}' } [0x2c08 resolution 24 de
 leisure=water_park [0x2b04 resolution 24 default_name 'аквапарк']
 
 man_made=tower [0x6411 resolution 22 default_name 'башня']
+power=generator & generator:source=wind [0x641a resolution 22 default_name 'ветряк']
+man_made=windmill [0x641b resolution 22 default_name 'мельница']
 
 # Edge 705 displays 0x650a,0x6511,0x6512,0x6513,0x6603,0x6614 as hollow white circles, no menu
 natural=peak | natural=hill {name '${name|def:}${ele|height:m=>ft|def:}' } [0x6616 resolution 21 default_name 'вершина']
