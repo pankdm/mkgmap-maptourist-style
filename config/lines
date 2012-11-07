@@ -104,6 +104,9 @@ name=* { name '${name|subst:улица=> ул.
 			|subst:набережная=> наб.
 			}' }
 
+# taxi type is used for river routing
+highway=* {add taxi=no}
+
 # убираем из обработки все планируемые дороги, ж/д, мосты и т.д.
 highway=proposed | railway=proposed | bridge=proposed | proposed=* 
 		{delete highway; delete rail; delete bridge}
@@ -354,7 +357,7 @@ waterway=canal |
 waterway=river |
 waterway=rapid | waterway=rapids | whitewater=rapid | whitewater=rapids |
 waterway=drain |
-waterway=stream {add access=no} [0x0f road_class=0 road_speed=0 resolution 24]
+waterway=stream {add access=no; add taxi=yes} [0x0f road_class=0 road_speed=0 resolution 24]
 
 # Горнолыжные трассы
 piste:type=downhill & piste:difficulty=novice [0x10105 resolution 22]
