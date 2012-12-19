@@ -8,8 +8,8 @@ Run update_bin.sh script which will download all binaries
 OR
 
 Manually download the following binaries:
-- mkgmap.jar from http://www.mkgmap.org.uk/snapshots/
-- splitter.jar from http://www.mkgmap.org.uk/splitter/
+- mkgmap.jar from http://www.mkgmap.org.uk/download/mkgmap.html
+- splitter.jar from http://www.mkgmap.org.uk/download/splitter.html
 - osmosis from http://bretth.dev.openstreetmap.org/osmosis-build/osmosis-latest.tgz
 
 and make links for them in bin/
