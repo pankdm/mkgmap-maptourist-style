@@ -143,6 +143,7 @@ amenity=fast_food & cuisine ~ '.*pizza.*' [0x2a0a resolution 24 default_name 'п
 amenity=fast_food [0x2a07 resolution 24 default_name 'быстрое питание']
 amenity=fire_station [0x3008 resolution 24 default_name 'пожарная часть']
 amenity=food_court [0x2a13 resolution 24 default_name 'кафе']
+amenity=fuel & fuel:lpg=yes { name '${name}' | '${operator}' | 'АГНС'} 
 amenity=fuel { name '${name}' | '${operator}' } 
 	[0x2f01 resolution 24 continue default_name 'АЗС']
 amenity=fuel { name '${name}' | '${operator}' } 
@@ -252,10 +253,10 @@ historic=museum [0x2c02 resolution 24 default_name 'музей']
 historic=archaeological_site [0x2c04 resolution 24 default_name 'историч.']
 historic=memorial [0x2c04 resolution 24 default_name 'мемориал']
 historic=monument [0x2c04 resolution 24 default_name 'монумент']
-
 historic=fort [0x11604 resolution 21 default_name 'форт']
 historic=castle [0x11604 resolution 21 default_name 'замок']
 historic=ruins [0x11605 resolution 21 default_name 'историч.']
+
 
 leisure=common & name=* [0x2c06 resolution 24]
 leisure=garden & name=* [0x2c06 resolution 24]
