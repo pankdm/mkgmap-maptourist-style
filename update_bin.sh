@@ -3,7 +3,7 @@
 set -e
 
 mkgmap_url='http://www.mkgmap.org.uk/download/mkgmap-latest.tar.gz'
-splitter_url='http://www.mkgmap.org.uk/download/splitter-r263.tar.gz'
+splitter_url='http://www.mkgmap.org.uk/download/splitter-latest.tar.gz'
 osmosis_url='http://bretth.dev.openstreetmap.org/osmosis-build/osmosis-latest.tgz'
 
 update_dist() {
