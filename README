@@ -17,6 +17,9 @@ and make links for them in bin/
 
 == Usage
 Download the map (that you want to convert) in pbf format.
+Possible links:
+- http://download.geofabrik.de/openstreetmap/
+- http://downloads.cloudmade.com/
 
 Put it as input/example.osm.pbf
     or change the parameter INPUT in Makefile
