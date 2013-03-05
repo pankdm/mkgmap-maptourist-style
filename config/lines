@@ -111,6 +111,9 @@ highway=* {add taxi=no}
 highway=proposed | railway=proposed | bridge=proposed | proposed=* 
 		{delete highway; delete rail; delete bridge}
 
+# удаляем мост если bridge=no
+bridge=no	{delete highway; delete rail; delete bridge}
+
 # Flag unpaved roads.
 highway=*
 & (surface=cobblestone | surface=compacted | surface=dirt |
@@ -256,7 +259,7 @@ highway=tertiary_link [0x08 road_class=1 road_speed=1 resolution 21]
 highway=minor {add display_name = '${name}'} [0x06 road_class=1 road_speed=3 resolution 19]
 highway=unclassified {add display_name = '${name}'} [0x06 road_class=0 road_speed=3 resolution 19]
 
-highway=pedestrian & area!=yes {add access = no; add foot = yes} [0x0d road_class=0 road_speed=0 resolution 22]
+highway=pedestrian & area!=yes {add access = no; add foot = yes} [0x16 road_class=0 road_speed=0 resolution 22]
 highway=living_street & area!=yes [0x06 road_class=0 road_speed=1 resolution 22]
 highway=residential & area!=yes {add display_name = '${name}'} [0x0d road_class=0 road_speed=2 resolution 22]
 highway=bridleway {add access = no; add bicycle = yes; add foot = yes} [0x16 road_class=0 road_speed=0 resolution 22]
