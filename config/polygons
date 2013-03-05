@@ -123,6 +123,7 @@ landuse=garages [0x06 resolution 24]
 
 amenity=prison [0x04 resolution 22]
 amenity=school [0x0a resolution 24 continue]
+amenity=baby_hatch [0x0a resolution 24 continue]
 # amenity=supermarket is superceded by shop=supermarket or landuse=retail
 amenity=supermarket [0x08 resolution 21]
 amenity=university [0x0a resolution 24 continue]
@@ -149,6 +150,7 @@ landuse=quarry [0x0c resolution 21 continue]
 landuse=recreation_ground [0x50 resolution 21]
 # защита от противоречивых тегов landuse= и natural= (пример - Рыбинка)
 landuse=reservoir & natural!=* [0x3f resolution 19]
+man_made=wastewater_plant [0x3f resolution 19 default_name 'отстойник']
 # on resolution 24, display building=* instead of landuse=residential
 landuse=residential & place!=* {name '${name} (${cladr:suffix})' | '${name}'} [0x10 resolution 21]
 landuse=retail [0x08 resolution 21]
@@ -292,6 +294,9 @@ historic=ruins & building=yes [0x13 resolution 24]
 # building=* | man_made=* | amenity=* | tourism=* [0x13 resolution 24]
 tourism=attraction & building!=* [0x0d resolution 21]
 
+# Пирсы в площади а не здания
+man_made=pier  [0x0d resolution 21]
+
 # здания с улицами, номерами домов и, если есть, с названиями
 man_made=* | tourism=* & area!=yes { name 'д${addr:housenumber} (${name}) ${addr:street}' | 'д${addr:housenumber} ${addr:street}' | 'д${addr:housenumber}'} [0x13 resolution 24]
 (building=* | bridge=yes & area=yes) { name 'д${addr:housenumber} (${name}) ${addr:street}' | 'д${addr:housenumber} ${addr:street}' | 'д${addr:housenumber}'} [0x13 resolution 24]
@@ -319,4 +324,4 @@ natural=cliff [0x10118 resolution 21]
 # boundary=administrative & admin_level=4 & name='Новгородская область' [0x4b resolution 16 continue]
 # boundary=administrative & admin_level=4 & name='Костромская область' [0x4b resolution 16 continue]
 # boundary=administrative & admin_level=4 & name='Вологодская область' [0x4b resolution 16 continue]
-# boundary=administrative & admin_level=4 & name='Ярославская область' [0x4b resolution 16 continue]
+boundary=administrative & admin_level=4 & name='Ярославская область' [0x4b resolution 16 continue]
