@@ -154,19 +154,19 @@ highway=* & amenity=fuel | amenity=fuel & area=yes
 highway=motorway 	{name '${name} (${ref)}' 
 	| '${name} (${route_ref})' 
 	| '${ref|highway-symbol:hbox}' 
-	| '${name}'; add display_name = '${name} (${ref})' }
+	| '${name}'; add mkgmap:display_name = '${name} (${ref})' }
 highway=trunk		{ name '${name} (${ref})' 
 	| '${name} (${route_ref})' 
 	| '${ref|highway-symbol:hbox}' 
-	| '${name}'; add display_name = '${name} (${ref})' }
+	| '${name}'; add mkgmap:display_name = '${name} (${ref})' }
 highway=primary		{ name '${name} (${ref})' 
 	| '${name} (${route_ref})' 
 	| '${ref|highway-symbol:box}' 
-	| '${name}'; add display_name = '${name} (${ref})' }
+	| '${name}'; add mkgmap:display_name = '${name} (${ref})' }
 highway=secondary 	{ name '${name} (${ref})' 
 	| '${name} (${route_ref})' 
 	| '${ref|highway-symbol:box}' 
-	| '${name}'; add display_name = '${name} (${ref})' }
+	| '${name}'; add mkgmap:display_name = '${name} (${ref})' }
 # highway=* 		{ name '${ref} ${name}' | '${ref}' | '${name}' }
 
 # дополнительный тип односторонних дорог со стрелками
@@ -219,12 +219,12 @@ highway=path & (horse=designated|horse=official) {set highway=bridleway }
 highway=path & (foot=designated|foot=official) {set highway=footway }
 
 # Roundabouts
-junction=roundabout & highway=trunk {add display_name = '${name}'} [0x0c road_class=3 road_speed=2 resolution 18]
-junction=roundabout & highway=primary {add display_name = '${name}'} [0x0c road_class=3 road_speed=2 resolution 19]
-junction=roundabout & highway=secondary {add display_name = '${name}'} [0x0c road_class=2 road_speed=2 resolution 19]
-junction=roundabout & highway=tertiary {add display_name = '${name}'} [0x0c road_class=1 road_speed=1 resolution 19]
-junction=roundabout & highway=unclassified {add display_name = '${name}'} [0x0c road_class=1 road_speed=1 resolution 19]
-junction=roundabout {add display_name = '${name}'} [0x0c road_class=0 road_speed=1 resolution 21]
+junction=roundabout & highway=trunk {add mkgmap:display_name = '${name}'} [0x0c road_class=3 road_speed=2 resolution 18]
+junction=roundabout & highway=primary {add mkgmap:display_name = '${name}'} [0x0c road_class=3 road_speed=2 resolution 19]
+junction=roundabout & highway=secondary {add mkgmap:display_name = '${name}'} [0x0c road_class=2 road_speed=2 resolution 19]
+junction=roundabout & highway=tertiary {add mkgmap:display_name = '${name}'} [0x0c road_class=1 road_speed=1 resolution 19]
+junction=roundabout & highway=unclassified {add mkgmap:display_name = '${name}'} [0x0c road_class=1 road_speed=1 resolution 19]
+junction=roundabout {add mkgmap:display_name = '${name}'} [0x0c road_class=0 road_speed=1 resolution 21]
 
 # Ways that may or may not be useable
 
@@ -245,35 +245,35 @@ mkgmap:unpaved=1 & highway=unclassified
 [0x13 road_class=1 road_speed=2 resolution 19]
 
 # Ways sorted roughly by descending order of class
-highway=motorway {add display_name = '${name}'; add oneway = yes; add bicycle = no; add foot = no } [0x01 road_class=4 road_speed=7 resolution 14]
+highway=motorway {add mkgmap:display_name = '${name}'; add oneway = yes; add bicycle = no; add foot = no } [0x01 road_class=4 road_speed=7 resolution 14]
 highway=motorway_link {add oneway = yes; add bicycle = no; add foot = no } [0x09 road_class=3 road_speed=2 resolution 19]
-highway=* & motorroad=yes {add display_name = '${name}'; add bicycle = no; add foot = no}  [0x02 road_class=4 road_speed=4 resolution 16]
-highway=trunk {add display_name = '${name}'} [0x02 road_class=4 road_speed=5 resolution 16]
+highway=* & motorroad=yes {add mkgmap:display_name = '${name}'; add bicycle = no; add foot = no}  [0x02 road_class=4 road_speed=4 resolution 16]
+highway=trunk {add mkgmap:display_name = '${name}'} [0x02 road_class=4 road_speed=5 resolution 16]
 highway=trunk_link [0x09 road_class=3 road_speed=2 resolution 21]
-highway=primary {add display_name = '${name}'} [0x03 road_class=3 road_speed=4 resolution 18]
+highway=primary {add mkgmap:display_name = '${name}'} [0x03 road_class=3 road_speed=4 resolution 18]
 highway=primary_link [0x08 road_class=3 road_speed=1 resolution 21]
-highway=secondary {add display_name = '${name}'} [0x04 road_class=2 road_speed=3 resolution 18]
+highway=secondary {add mkgmap:display_name = '${name}'} [0x04 road_class=2 road_speed=3 resolution 18]
 highway=secondary_link [0x08 road_class=2 road_speed=1 resolution 21]
-highway=tertiary {add display_name = '${name}'} [0x11 road_class=1 road_speed=3 resolution 19]
+highway=tertiary {add mkgmap:display_name = '${name}'} [0x11 road_class=1 road_speed=3 resolution 19]
 highway=tertiary_link [0x08 road_class=1 road_speed=1 resolution 21]
-highway=minor {add display_name = '${name}'} [0x06 road_class=1 road_speed=3 resolution 19]
-highway=unclassified {add display_name = '${name}'} [0x06 road_class=0 road_speed=3 resolution 19]
+highway=minor {add mkgmap:display_name = '${name}'} [0x06 road_class=1 road_speed=3 resolution 19]
+highway=unclassified {add mkgmap:display_name = '${name}'} [0x06 road_class=0 road_speed=3 resolution 19]
 
 highway=pedestrian & area!=yes {add access = no; add foot = yes} [0x16 road_class=0 road_speed=0 resolution 22]
 highway=living_street & area!=yes [0x06 road_class=0 road_speed=1 resolution 22]
-highway=residential & area!=yes {add display_name = '${name}'} [0x0d road_class=0 road_speed=2 resolution 22]
+highway=residential & area!=yes {add mkgmap:display_name = '${name}'} [0x0d road_class=0 road_speed=2 resolution 22]
 highway=bridleway {add access = no; add bicycle = yes; add foot = yes} [0x16 road_class=0 road_speed=0 resolution 22]
 highway=byway [0x16 road_class=0 road_speed=0 resolution 22]
-highway=service & oneway=yes {add display_name = '${name}'} [0x07 road_class=0 road_speed=1 resolution 22]
-highway=service {add display_name = '${name}'} [0x07 road_class=0 road_speed=1 resolution 24]
+highway=service & oneway=yes {add mkgmap:display_name = '${name}'} [0x07 road_class=0 road_speed=1 resolution 22]
+highway=service {add mkgmap:display_name = '${name}'} [0x07 road_class=0 road_speed=1 resolution 24]
 highway=cycleway {add access = no; add bicycle = yes; add foot = yes} [0x16 road_class=0 road_speed=1 resolution 22]
 highway=footway {add access = no; add foot = yes} [0x16 road_class=0 road_speed=0 resolution 22]
 highway=path {add access = no; add bicycle = yes; add foot = yes} [0x16 road_class=0 road_speed=0 resolution 22]
 highway=steps {add access = no; add foot = yes} [0x16 road_class=0 road_speed=0 resolution 22]
-highway=track & tracktype!=grade1 {add display_name = '${name}'} [0x0a road_class=0 road_speed=1 resolution 21]
-highway=track & tracktype=grade1 {add display_name = '${name}'} [0x07 road_class=1 road_speed=1 resolution 21]
-highway=unsurfaced {add display_name = '${name}'} [0x0a road_class=0 road_speed=1 resolution 21]
-highway=road {add display_name = '${name}'} [0x05 road_class=0 road_speed=1 resolution 21]
+highway=track & tracktype!=grade1 {add mkgmap:display_name = '${name}'} [0x0a road_class=0 road_speed=1 resolution 21]
+highway=track & tracktype=grade1 {add mkgmap:display_name = '${name}'} [0x07 road_class=1 road_speed=1 resolution 21]
+highway=unsurfaced {add mkgmap:display_name = '${name}'} [0x0a road_class=0 road_speed=1 resolution 21]
+highway=road {add mkgmap:display_name = '${name}'} [0x05 road_class=0 road_speed=1 resolution 21]
 # highway=road {add mkgmap:dead-end-check = false} [0x00 road_class=0 road_speed=1 resolution 21]
 
 # Mop up any unrecognised highway types
@@ -318,6 +318,7 @@ waterway=rapid | waterway=rapids | whitewater=rapid | whitewater=rapids
 
 waterway=drain [0x18 resolution 19 continue]
 waterway=stream [0x18 resolution 21 continue]
+waterway=ditch [0x18 resolution 21 continue]
 
 man_made=pipeline {name '${name}' | '${operator}'} [0x28 resolution 18]
 # Просеки
