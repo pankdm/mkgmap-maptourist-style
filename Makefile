@@ -58,8 +58,7 @@ convert:
 		--family-id=${ID} \
 		--keep-going \
 		--read-config=optionsfile.args \
-		--style-file=${STYLE} \
-		--style=${STYLE} \
+		--style-file=./${STYLE} \
 		--gmapsupp \
 		-c splitted/template.args ${STYLE}/${TYP}
 

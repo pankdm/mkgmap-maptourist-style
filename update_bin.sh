@@ -8,6 +8,7 @@ osmosis_url='http://bretth.dev.openstreetmap.org/osmosis-build/osmosis-latest.tg
 
 update_dist() {
 	dist_url=$1
+	tmp_suffix=$2
 	dist_file=`basename $dist_url`
 	remote_size=`wget --spider --server-response $dist_url -O - 2>&1 | sed -ne '/Content-Length/{s/.*: //;p}'`
 	if [ -e $dist_file ]; then
@@ -19,14 +20,15 @@ update_dist() {
 		rm -f $dist_file
 		wget -c $dist_url
 	fi
-	tar xfz $dist_file -C tmp
+	mkdir -p tmp/${tmp_suffix}
+	tar xfz $dist_file -C tmp/${tmp_suffix}
 }
 
 mkdir -p tmp
 
-update_dist $mkgmap_url
-update_dist $splitter_url
-update_dist $osmosis_url
+update_dist ${mkgmap_url}
+update_dist ${splitter_url}
+update_dist ${osmosis_url} osmosis-latest
 
 mkdir -p contrib
 
