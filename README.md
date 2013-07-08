@@ -4,18 +4,18 @@ maps from OpenStreetMap data using mkgmap and style files from
 
 ## Usage
 
-1. Download the latest versions of `mkgmap`, `splitter`, `osmosis`:
+**1.** Download the latest versions of `mkgmap`, `splitter`, `osmosis`:
 
 ```
 ./update_bin.sh
 ```
 
-2. Download the map (that you want to convert) in `pbf` format. Possible links:
+**2.** Download the map (that you want to convert) in `pbf` format. Possible links:
   - <http://downloads.cloudmade.com/>
   - <http://gis-lab.info/projects/osm_dump/>
   - <http://download.geofabrik.de/openstreetmap/>
 
-3. Generate map:
+**3.** Generate map:
 
 ```
 make split convert INPUT=/path/to/pbf/file
