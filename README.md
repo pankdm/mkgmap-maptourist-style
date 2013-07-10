@@ -4,7 +4,7 @@ maps from OpenStreetMap data using mkgmap and style files from
 
 ## Description
 
-For list of supported features see [here](features/README.md).
+List of supported poi can be found [here](features/).
 
 ## Usage
 
