@@ -1,6 +1,10 @@
 This is a project to provide easy and convenient way to convert Garmin 
 maps from OpenStreetMap data using mkgmap and style files from 
-<http://maptourist.org>
+<http://maptourist.org>.
+
+## Description
+
+For list of supported features see [here](features/README.md).
 
 ## Usage
 
