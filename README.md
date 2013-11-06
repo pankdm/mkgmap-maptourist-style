@@ -15,9 +15,9 @@ List of supported poi can be found [here](features/).
 ```
 
 **2.** Download the map (that you want to convert) in `pbf` format. Possible links:
-  - <http://downloads.cloudmade.com/>
   - <http://gis-lab.info/projects/osm_dump/>
   - <http://download.geofabrik.de/openstreetmap/>
+
 
 **3.** Generate map:
 
