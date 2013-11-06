@@ -15,8 +15,10 @@ List of supported poi can be found [here](features/).
 ```
 
 **2.** Download the map (that you want to convert) in `pbf` format. Possible links:
-  - <http://gis-lab.info/projects/osm_dump/>
-  - <http://download.geofabrik.de/openstreetmap/>
+  - Worldwide: <http://download.geofabrik.de/openstreetmap/>
+  - Russia and xUSSR: <http://gis-lab.info/projects/osm_dump/>
+
+More links: <http://wiki.openstreetmap.org/wiki/Planet.osm>
 
 
 **3.** Generate map:
