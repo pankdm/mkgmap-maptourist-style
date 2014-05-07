@@ -11,6 +11,9 @@ OSMOSIS?=	bin/osmosis
 SPLITTER?=	java -Xmx1500m -jar bin/splitter.jar
 MKGMAP?=	java -Xmx1500m -jar bin/mkgmap.jar
 
+
+NAMELIST?=	name:ru,name,name:en,int_name
+
 all: bounds split convert
 
 bounds:
@@ -38,7 +41,7 @@ bounds:
 split:
 	mkdir -p logs
 	${SPLITTER} \
-		--overlap=20000 \
+		--overlap=0 \
 		--max-nodes=1000000 \
 		--no-trim \
 		--output=pbf \
@@ -59,6 +62,8 @@ convert:
 		--keep-going \
 		--read-config=optionsfile.args \
 		--style-file=./${STYLE} \
+		--name-tag-list=${NAMELIST} \
+		--housenumbers \
 		--gmapsupp \
 		-c splitted/template.args ${STYLE}/${TYP}
 
